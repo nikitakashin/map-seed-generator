@@ -17,10 +17,9 @@ module.exports.getSeed = (string, len=24) => {
       let seed = String(firstSeed);
 
       for (let i = 0; i <= remainingAmount - 1; i++) {
-        const multiplier = multiplier(i);
         let _seedLength = (remaining - (i + 1) * MAX_SEED_LENGTH) >= MAX_SEED_LENGTH ? MAX_SEED_LENGTH : (remaining - (i + 1) * MAX_SEED_LENGTH);
         _seedLength = _seedLength === 0 ? MAX_SEED_LENGTH : _seedLength;
-        seed += String(normalizeSeed(makePrimarySeed(charsArray, multiplier), _seedLength));
+        seed += String(normalizeSeed(makePrimarySeed(charsArray, multiplier(i)), _seedLength));
       }
       return seed;
     } else {
@@ -140,12 +139,13 @@ const standartChars = new Map([
 const normalizeSeed = (seed, seedLength) => {
   let c = Math.floor(seed);
 
-  for (let i = 0; i <= 1000000; i++) {
+  while (true) {
+    const mul = 2.352;
     if (String(c).length > seedLength) {
-			c = c / 11.352;
+			c = c / mul;
 			c = Math.floor(c);
     } else if (String(c).length < seedLength) {
-      c = c * 11.352;
+      c = c * mul;
 			c = Math.floor(c);
     } else {
       c = Math.floor(c);

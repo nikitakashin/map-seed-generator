@@ -1,0 +1,45 @@
+{
+  "name": "map-seed-generator",
+  "version": "1.0.0",
+  "description": "Generate fixed-length digital seed from any length string",
+  "published": "04.2022",
+  "keywords": [
+    "Map seed",
+    "Seed",
+    "Map seed fro games",
+    "Seed generator",
+    "String to integer"
+  ],
+  "main": "./dist/index.js",
+  "scripts": {
+    "test": "jest",
+    "build": "./node_modules/.bin/babel --extensions .ts src --out-dir dist",
+    "dev": "ts-node ./src/index.ts"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nikitakashin/map-seed-generator.git"
+  },
+  "author": {
+    "name": "Kashin Nikita",
+    "url": "https://github.com/nikitakashin/",
+    "email": "dev@nkashin.ru"
+  },
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/nikitakashin/map-seed-generator/issues"
+  },
+  "homepage": "https://commondev.ru/projects/map-seed-generator",
+  "devDependencies": {
+    "@babel/cli": "^7.17.6",
+    "@babel/core": "^7.17.8",
+    "@babel/preset-env": "^7.16.11",
+    "@babel/preset-typescript": "^7.16.7",
+    "@types/jest": "^27.4.1",
+    "babel-jest": "^27.5.1",
+    "babel-preset-minify": "^0.5.1",
+    "jest": "^27.5.1",
+    "ts-node": "^10.7.0",
+    "typescript": "^4.6.3"
+  }
+}
